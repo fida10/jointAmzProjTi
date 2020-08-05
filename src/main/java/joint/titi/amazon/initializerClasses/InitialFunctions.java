@@ -49,4 +49,7 @@ public class InitialFunctions {
         webDriverInit();
         return dr;
     }
+    public static WebDriver getWebDriverPlainWithoutReinitializing(){
+        return dr;
+    }
 }

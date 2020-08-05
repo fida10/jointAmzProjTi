@@ -1,16 +1,15 @@
 package joint.titi.amazon.listeners;
 
+import joint.titi.amazon.commonCode.ScreenshotsCode;
 import joint.titi.amazon.initializerClasses.InitialFunctions;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.util.Properties;
 
 public class Listeners implements ITestListener {
-
-
+    private final ScreenshotsCode screenshotsCode = new ScreenshotsCode();
     @Override
     public void onTestStart(ITestResult result) {
 
@@ -18,17 +17,17 @@ public class Listeners implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-
+        screenshotsCode.takeScreenShot("pass");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-
+        screenshotsCode.takeScreenShot("fail");
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-
+        screenshotsCode.takeScreenShot("skip");
     }
 
     @Override
@@ -43,7 +42,7 @@ public class Listeners implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-
+        screenshotsCode.screenShotDirStringGenerator();
     }
 
     @Override
